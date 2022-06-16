@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;800&display=swap');
+
+:root {
+  --text: #000000;
+  --border-line: #cc3b3b;
+  --display-pads: #ffe0c4;
+  --body: #fab87d;
+  --background: #ff9752;
+  --slider-hover: rgba(204, 59, 59,.1);
+  --slider-active: rgba(204, 59, 59,.2);
+}
+
+#root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--background);
+}
+
+#drum-machine {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 650px;
+  width: 100%;
+  padding: 25px;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  border: 5px solid var(--border-line);
+  background-color: var(--body);
+
+}
+
+#controls-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  margin-right: 20px;
+}
+
+#drum-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2em;
+  text-align: center;
+  line-height: 1.2em;
+}
+
+#drum-header h1 {
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+#display-and-pad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+@media (max-width: 650px) {
+  #drum-machine {
+    display: block;
+    margin: auto;
+    width: 85%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateX(0%) translateY(0%);
+  }
+  
+  
+  #drum-header {
+    font-size: 0.8em;
+    margin: auto;
+  }
+  
+  #controls-container {
+    display: block;
+    margin: auto;
+    margin-bottom: 25px;
+    width: 100%;
+  }
+ 
+}
+
+#display {
+  font-size: 2.0em;
+  color: var(--text);
+  background-color: var(--display-pads);
+  border: 3px solid var(--border-line);
+  max-width: 360px;
+  width: 100%;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  height: 1.8em;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+#drum-pad-set {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 360px;
+  width: 98%;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.drum-pad {
+  color: var(--text);
+  width: 28%;
+  max-width: 92px;
+  height: 92px;
+  background-color: var(--display-pads);
+  border: 2px solid var(--border-line);
+  margin: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.0em;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+@media (max-width: 430px) {
+  .drum-pad {
+    margin: 6px;
+    height: 70px;
+    width: 26%;
+  }
+}
+
+.switch-container {
+  margin: 10px;
+}
+
+.switch {
+  background-color: var(--display-pads);
+  width: 60px;
+  height: 30px;
+  border-radius: 20px;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end; 
+  cursor: pointer;
+}
+
+.button {
+  background-color: var(--border-line);
+  width: 50%;
+  border-radius: 50%;
+}
+
+.labels {
+  display: flex;
+  flex-direction: row;
+  width: 70px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  height: 1em;
+}
+
+.labels p {
+  width: 30px;
+  text-align: center;
+  margin-top: 1.5em;
+}
+
+.switch-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+}
+
+#vol-control-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.switch-label {
+  margin: 0.8em;
+  font-weight: bold;
+}
+
+@media (max-height: 450px) {
+  #drum-machine {
+    position: absolute;
+    transform: translateX(0%) scale(65%)  translateY(-25%) ;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+  }  
+}
+
+/*CUSTOM RANGE INPUT CSS, CREDITS TO MinzCode "https://www.youtube.com/watch?v=gjPllrhIYsM"*/
+
+#vol-slider-container {
+	width: 100%;
+  max-width: 250px;
+  margin: 10px;
+}
+
+#vol-slider {
+	position: relative;
+}
+
+#vol-slider .bar {
+	position: absolute;
+	z-index: 1;
+	left: 2px;
+	top: 7px;
+	width: 100%;
+	height: 10px;
+	border-radius: 5px;
+	background-color: var(--display-pads);
+	overflow: hidden;
+}
+
+#vol-slider .bar .fill {
+	display: block;
+	width: 30%;
+	height: 100%;
+	background-color: var(--border-line);
+}
+
+#vol-slider #slider {
+	position: relative;
+	z-index: 2;
+	-webkit-appearance: none;
+	width: 100%;
+	height: 10px;
+	border-radius: 5px;
+	outline: none;
+	background-color: transparent;
+}
+#vol-slider #slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	width: 25px;
+	height: 25px;
+	background-color: var(--border-line);
+	border-radius: 50%;
+	cursor: pointer;
+	outline: none;
+	box-shadow: 0 0 0 0 rgba(98,0,238,.1);
+	transition: .3s ease-in-out;
+}
+#vol-slider #slider::-webkit-slider-thumb:hover {
+	box-shadow: 0 0 0 8px var(--slider-hover);
+}
+#vol-slider #slider:active::-webkit-slider-thumb {
+	box-shadow: 0 0 0 16px var(--slider-active);
+}
